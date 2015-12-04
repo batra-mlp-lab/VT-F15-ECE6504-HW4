@@ -18,7 +18,7 @@ cmd:option('--dropout', false, 'apply dropout after each recurrent layer')
 cmd:option('--saveEvery', 500 , 'saves after S iterations')
 cmd:text()
 opt = cmd:parse(arg or {})
-table.print(opt)
+print(opt)
 
 if opt.cuda == true then
   require 'cunn'

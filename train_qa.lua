@@ -18,7 +18,7 @@ cmd:option('--dropout', false, 'apply dropout after each recurrent layer')
 cmd:option('--saveEvery', 500 , 'saves after S iterations')
 cmd:text()
 opt = cmd:parse(arg or {})
-table.print(opt)
+print(opt)
 
 if opt.cuda == true then
   require 'cunn'
@@ -39,7 +39,7 @@ image = data_hw4['image']
 
 -- batchify
 -- data is put in a table of batchSize X Q_len 
-X_train,y_train,_ = hw4_util.batchify(question,answer,image,opt.batchSize)
+X_train,y_train = hw4_util.batchify(question,answer,image,opt.batchSize)
 
 -- separate some part of the data into val
 val_split = 95 -- approx. 20% of the data used for val
